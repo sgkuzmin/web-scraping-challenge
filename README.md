@@ -3,4 +3,4 @@ A web application that scrapes various websites for data related to the Mission 
 
 Below is the resulting web page screenshot:
 
-![mission_to_mars](Missions_to_MarsMissions_to_Mars/Screenshot_of_the_mars_data_flask_page.png)
+![mission_to_mars](Missions_to_Mars/Screenshot_of_the_mars_data_flask_page.png)
