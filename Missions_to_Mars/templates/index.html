@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <!-- Mars Data display -->
+    <div class="row" id="marsdata1">
+      <div class="col-md-12">
+          <h3>Latest Mars News</h3>
+        <h4 class="heading">{{mars_scraped.news_title}}</h4>
+        <p>{{mars_scraped.news_p}}</p>
+      </div>
+    </div>
+    <div class="row" id="marsdata2">
+        <div class="col-md-6">
+            <h3>Featured Mars Image</h3>
+            <img src="{{ mars_scraped.featured_image_url }}" alt="Featured Mars Image" style=" max-width: 100%; height: auto;">
+        </div>
+        <div class="col-md-6">
+            <h3>Mars Facts</h3>
+            {{mars_scraped.html_table_mars|safe}}
+        </div>
+
+    </div>
+    <div class="row" id="marsheader2">
+        <div class="col-md-12"> <h3 style="text-align:center">Mars Hemispheres</h3> 
+            <hr class="solid">
+    </div>
+    </div>
+    <div class="row" id="marsdata3">
+        {% for dict_item in mars_scraped.hemisphere_image_urls %}
+        <div class="col-md-3" >  
+            
+         <div class="card" >
+            <img class="card-img-top" src={{dict_item.img_url}} style=" max-width: 100%; height: auto;" alt="{{dict_item.title}}">
+            <div class="card-body">
+              <h5 class="card-title">{{dict_item.title}}</h5>
+            </div>
+         </div>
+       
+        </div> 
+        {% endfor %}
+    
+    </div>
+</div>
+</body>
+
+</html>
